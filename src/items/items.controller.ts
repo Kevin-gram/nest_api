@@ -3,11 +3,11 @@ import { CreateItemDto } from './dto/create_item.dto';
 @Controller('items')
 export class ItemsController {
   @Get()
-  findAll(): string {
-    return 'this rout is for getting all items';
+  findAll() {
+    return 'this a rout for get request ';
   }
   @Post()
-  creatItem(@Body createItemDto: CreateItemDto): string {
-    return `Name:${createItemDto.name} Description :${createItemDto.description} Quantity:${createItemDto.qty}`;
+  create(@Body() createItemDto: CreateItemDto) {
+    return `the name of the item is ${createItemDto.name} the description of the item is ${createItemDto.description} and the quantity of the items is ${createItemDto.qty}`;
   }
 }
