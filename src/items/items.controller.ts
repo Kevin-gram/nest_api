@@ -25,10 +25,15 @@ export class ItemsController {
   findAllItems(): Item[] {
     return this.itemService.findAll();
   }
+  // @Get(':id')
+  // findOne(@Param('id') id): string {
+  //   return ` this the item parameter id ${id}`;
+  // }
   @Get(':id')
-  findOne(@Param('id') id): string {
-    return ` this the item parameter id ${id}`;
+  findSingleElement(@Param('id') id): Item {
+    return this.itemService.findOne(Number(id));
   }
+
   @Post()
   create(@Body() createItemDto: CreateItemDto) {
     return `the name of the item is ${createItemDto.name} the description of the item is ${createItemDto.description} and the quantity of the items is ${createItemDto.qty}`;
