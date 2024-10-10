@@ -22,7 +22,7 @@ export class ItemsController {
   //   return res.send(`this request url ${req.url}`);
   // }
   @Get()
-  findAllItems(): Item[] {
+  async findAllItems(): Promise<Item[]> {
     return this.itemService.findAll();
   }
   // @Get(':id')
@@ -30,23 +30,23 @@ export class ItemsController {
   //   return ` this the item parameter id ${id}`;
   // }
   @Get(':id')
-  findSingleElement(@Param('id') id): Item {
+  async findSingleElement(@Param('id') id: string): Promise<Item> {
     return this.itemService.findOne(Number(id));
   }
 
-  @Post()
-  create(@Body() createItemDto: CreateItemDto) {
-    return `the name of the item is ${createItemDto.name} the description of the item is ${createItemDto.description} and the quantity of the items is ${createItemDto.qty}`;
-  }
-  @Delete(':id')
-  delete(@Param('id') id: number): string {
-    return `the item  on the id of ${id} is successfully deleted ;`;
-  }
-  @Put(':id')
-  updateItem(
-    @Body() updateItem: CreateItemDto,
-    @Param('id') id: number,
-  ): string {
-    return ` this is the updated item id ${id} and the updated name is ${updateItem.name}`;
-  }
+  // @Post()
+  // create(@Body() createItemDto: CreateItemDto) {
+  //   return `the name of the item is ${createItemDto.name} the description of the item is ${createItemDto.description} and the quantity of the items is ${createItemDto.qty}`;
+  // }
+  // @Delete(':id')
+  // delete(@Param('id') id: number): string {
+  //   return `the item  on the id of ${id} is successfully deleted ;`;
+  // }
+  // @Put(':id')
+  // updateItem(
+  //   @Body() updateItem: CreateItemDto,
+  //   @Param('id') id: number,
+  // ): string {
+  //   return ` this is the updated item id ${id} and the updated name is ${updateItem.name}`;
+  // }
 }
