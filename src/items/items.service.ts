@@ -22,4 +22,7 @@ export class ItemsService {
       qty: 5,
     },
   ];
+  findAll() {
+    return this.items;
+  }
 }

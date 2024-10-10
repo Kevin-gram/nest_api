@@ -11,12 +11,19 @@ import {
 } from '@nestjs/common';
 import { CreateItemDto } from './dto/create_item.dto';
 import { Response, Request } from 'express';
+import { ItemsService } from './items.service';
+import { Item } from './interface/item.interface';
 @Controller('items')
 export class ItemsController {
+  constructor(private readonly itemService: ItemsService) {}
+  // @Get()
+  // findAll(@Req() req: Request, @Res() res: Response): Response {
+  //   console.log(req.url);
+  //   return res.send(`this request url ${req.url}`);
+  // }
   @Get()
-  findAll(@Req() req: Request, @Res() res: Response): Response {
-    console.log(req.url);
-    return res.send(`this request url ${req.url}`);
+  findAllItems(): Item[] {
+    return this.itemService.findAll();
   }
   @Get(':id')
   findOne(@Param('id') id): string {
