@@ -4,9 +4,21 @@ import { Item } from './interface/item.interface';
 export class ItemsService {
   private readonly items: Item[] = [
     {
-      id: 24324234,
+      id: 243234,
       name: 'peter',
       description: 'kanyarwanda',
+      qty: 5,
+    },
+    {
+      id: 324234,
+      name: 'putin',
+      description: 'karasia',
+      qty: 5,
+    },
+    {
+      id: 2434,
+      name: 'kibwa',
+      description: 'kicukiro',
       qty: 5,
     },
   ];
