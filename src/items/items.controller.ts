@@ -1,10 +1,12 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body, Req, Res } from '@nestjs/common';
 import { CreateItemDto } from './dto/create_item.dto';
+import { Response, Request } from 'express';
 @Controller('items')
 export class ItemsController {
   @Get()
-  findAll() {
-    return 'this a rout for get request ';
+  findAll(@Req() req: Request, @Res() res: Response): Response {
+    console.log(req.url);
+    return res.send(`this request url ${req.url}`);
   }
   @Post()
   create(@Body() createItemDto: CreateItemDto) {
