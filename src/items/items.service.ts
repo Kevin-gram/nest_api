@@ -8,7 +8,7 @@ export class ItemsService {
   async findAll(): Promise<Item[]> {
     return await this.itemsModel.find();
   }
-  async findOne(id: number): Promise<Item> {
-    return await this.itemsModel.findOne({ _id: id });
+  async findOne(id: string): Promise<Item> {
+    return await this.itemsModel.findById(id).exec();
   }
 }

@@ -31,7 +31,7 @@ export class ItemsController {
   // }
   @Get(':id')
   async findSingleElement(@Param('id') id: string): Promise<Item> {
-    return this.itemService.findOne(Number(id));
+    return this.itemService.findOne(id);
   }
 
   // @Post()
