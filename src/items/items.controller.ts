@@ -4,6 +4,7 @@ import {
   Post,
   Body,
   Put,
+  Patch,
   Req,
   Res,
   Param,
@@ -40,6 +41,10 @@ export class ItemsController {
   @Post()
   async postItem(@Body() item: Item): Promise<Item> {
     return this.itemService.post(item);
+  }
+  @Patch(':id')
+  async updateItem(@Param('id') id: string, @Body() item: Item): Promise<Item> {
+    return this.itemService.update(id, item);
   }
   // @Post()
   // create(@Body() createItemDto: CreateItemDto) {

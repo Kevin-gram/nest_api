@@ -18,4 +18,7 @@ export class ItemsService {
     const newItem = new this.itemsModel(item);
     return await newItem.save();
   }
+  async update(id: string, item: Item): Promise<Item> {
+    return await this.itemsModel.findByIdAndUpdate(id, item).exec();
+  }
 }
