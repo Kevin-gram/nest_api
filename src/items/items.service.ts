@@ -11,4 +11,7 @@ export class ItemsService {
   async findOne(id: string): Promise<Item> {
     return await this.itemsModel.findById(id).exec();
   }
+  async delete(id: number): Promise<Item> {
+    return await this.itemsModel.findByIdAndRemove(id);
+  }
 }
