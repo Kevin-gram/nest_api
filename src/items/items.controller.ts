@@ -33,7 +33,10 @@ export class ItemsController {
   async findSingleElement(@Param('id') id: string): Promise<Item> {
     return this.itemService.findOne(id);
   }
-
+  @Delete(':id')
+  async deleteSengleAndDelete(@Param('id') id: number): Promise<Item> {
+    return this.itemService.delete(id);
+  }
   // @Post()
   // create(@Body() createItemDto: CreateItemDto) {
   //   return `the name of the item is ${createItemDto.name} the description of the item is ${createItemDto.description} and the quantity of the items is ${createItemDto.qty}`;
