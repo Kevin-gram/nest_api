@@ -19,6 +19,8 @@ export class ItemsService {
     return await newItem.save();
   }
   async update(id: string, item: Item): Promise<Item> {
-    return await this.itemsModel.findByIdAndUpdate(id, item).exec();
+    return await this.itemsModel
+      .findByIdAndUpdate(id, item, { new: true })
+      .exec();
   }
 }
