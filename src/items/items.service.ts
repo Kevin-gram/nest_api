@@ -23,4 +23,10 @@ export class ItemsService {
       .findByIdAndUpdate(id, item, { new: true })
       .exec();
   }
+  // async updateAll(id: string, item: Item): Promise<Item> {
+  //   const newItem = new this.itemsModel(item);
+  //   return await this.itemsModel
+  //     .findByIdAndUpdate(id, newItem, { new: true })
+  //     .exec();
+  // }
 }
