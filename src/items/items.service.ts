@@ -14,4 +14,8 @@ export class ItemsService {
   async delete(id: number): Promise<Item> {
     return await this.itemsModel.findByIdAndDelete(id).exec();
   }
+  async post(item: Item): Promise<Item> {
+    const newItem = new this.itemsModel(item);
+    return await newItem.save();
+  }
 }
