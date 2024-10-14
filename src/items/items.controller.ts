@@ -39,4 +39,8 @@ export class ItemsController {
   async updateItem(@Param('id') id: string, @Body() item: Item): Promise<Item> {
     return this.itemService.update(id, item);
   }
+  @Put(':id')
+  async updateAll(@Param('id') id: string, @Body() item: Item): Promise<Item> {
+    return this.itemService.updateAll(id, item);
+  }
 }
